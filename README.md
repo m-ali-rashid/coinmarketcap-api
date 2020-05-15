@@ -1,6 +1,8 @@
 # CoinMarketCap-API
 
-I have created a sample ReactJS code that uses CoinMarketCap's free crypto API to get the real-time cryptocurrency and exchange trade data for Bitcoin, Etherium, and other cryptocurrencies.
+I have created a sample ReactJS code that uses CoinMarketCap's free crypto API to get the real-time cryptocurrency and exchange trade data for Bitcoin, Etherium, and other cryptocurrencies. Take a look at the preview of this App.
+
+![](CoinMarketCap-API.gif)
 
 ## Getting Started
 
