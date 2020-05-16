@@ -7,7 +7,7 @@ const Navbar = () => {
 		height: '40px'
 	}
 	return (
-		<nav className = "navbar navbar-dark bg-dark navbar-expand-lg" >
+		<nav className = "navbar navbar-dark bg-primary navbar-expand-lg" >
 			<div className="container">
 				<NavLink className="navbar-brand" to="/">
 					<img src={Logo} alt="Crypto Info" style={imageStyle} />CrypTo inFo
