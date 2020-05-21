@@ -1,58 +1,111 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-// import styled from 'styled-components';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-// import MenuIcon from '@material-ui/icons/Menu';
+import Paper from '@material-ui/core/Paper';
+import SearchIcon from '@material-ui/icons/Search';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-// import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-// import Button from '@material-ui/core/Button';
-// import NoSsr from '@material-ui/core/NoSsr';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Logo from '../images/logo.png';
+import Home from './Home.js'
 
-const muiTabStyles = makeStyles({
-	textColorInherit: {
-    background:'blue',
-    '&.Mui-selected':{border:'2px solid green'}
-  },
-}, { name: 'MuiTab' });
-
-
-function Navbar() {
-  const muiTabStyled = muiTabStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-		console.log(value);
-  };
-
-  
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
   return (
-    <div>
-			<AppBar position="static">
-			<div className="container">
-				<Toolbar variant="dense">
-						<Tabs
-			        value={value}
-			        onChange={handleChange}
-			        centered
-			      >
-			        <Tab label="Item One" />
-			        <Tab label="Item Two" />
-			        <Tab label="Item Three" />
-			      </Tabs>
-				</Toolbar>
-			</div>
-      </AppBar>
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box p={3}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
     </div>
   );
 }
 
-export default Navbar
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.any.isRequired,
+  value: PropTypes.any.isRequired,
+};
 
-// <NavLink className="nav-link" to="/">Home</NavLink>
-// <NavLink className="nav-link" to="/top/1/10">Top 100</NavLink>
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
+
+export default function SimpleTabs(props) {
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const gotoHome = (e) => {
+    console.log(props);
+  }
+
+  return (
+    <div className={classes.root}>
+      <Paper>
+        <div className="d-flex justify-content-between align-items-center text-center mt-4 mb-3 container">
+          <h1 style={{color:'#8064a4'}}><img src={Logo} alt="CryptoPress" style={{width:'100px'}}/> CryptoPress</h1>
+          <Tabs
+            value={value}
+            textColor="primary"
+            onChange={handleChange}
+            aria-label="simple tabs example"
+            indicatorColor="primary"
+            centered
+          >
+            <Tab label="Home" {...a11yProps(0)} disableRipple={true}/>
+            <Tab label="Pages" {...a11yProps(1)} disableRipple={true}/>
+            <Tab label="My Earnings" {...a11yProps(2)} disableRipple={true}/>
+            <Tab label="Articles" {...a11yProps(3)} disableRipple={true}/>
+            <Tab label="Store" {...a11yProps(4)} disableRipple={true}/>
+            <Tab label="Contacts" {...a11yProps(5)} disableRipple={true}/>
+            <Tab label={<SearchIcon/>} {...a11yProps(6)} disableRipple={true}/>
+          </Tabs>
+        </div>
+      {/*
+      */}
+      </Paper>
+      <TabPanel value={value} index={0}>
+        <Home/>
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        Pages
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        My Earnings
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Articles
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        Store
+      </TabPanel>
+      <TabPanel value={value} index={5}>
+        Contacts
+      </TabPanel>
+    </div>
+  );
+}
