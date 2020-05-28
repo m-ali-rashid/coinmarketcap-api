@@ -1,0 +1,14 @@
+.navContainer {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+  .navContainer {
+    
+  }
+}
