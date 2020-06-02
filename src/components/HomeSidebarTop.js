@@ -63,7 +63,7 @@ function SimpleTabs(props) {
   };
 
   return (
-    <div className="border p-0">
+    <div className="p-0">
   		<Toolbar variant="dense" className="p-0">
         <Tabs
           value={value}

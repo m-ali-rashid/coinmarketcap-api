@@ -95,7 +95,6 @@ function SimpleTabs(props) {
             indicatorColor="primary"
             variant="scrollable"
             scrollButtons="auto"
-            centered={true}
           >
             <Tab label="Home" {...a11yProps(0)} onClick={()=>{navigateTo("/")}} disableRipple={true}/>
             <Tab label="List" {...a11yProps(1)} onClick={()=>{navigateTo("/top/1/10")}} disableRipple={true}/>
