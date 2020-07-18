@@ -29,7 +29,7 @@
     "eject": "react-scripts eject",
     "server": "cd server && nodemon server.js",
     "dev": "concurrently \"yarn server\" \"yarn start\" ",
-    "start": "concurrently \"yarn server\" \"react-scripts start\" ",
+    "start": "concurrently \"node server.js\" \"react-scripts start\" ",
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
