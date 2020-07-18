@@ -23,12 +23,13 @@
     "nodemon": "^2.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    // "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "cd server && nodemon server.js",
-    "dev": "concurrently \"yarn server\" \"yarn start\" "
+    "dev": "concurrently \"yarn server\" \"yarn start\" ",
+    "start": "concurrently \"yarn server\" \"react-scripts start\" ",
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
