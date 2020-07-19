@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useEffect } from "react";
 
 const RedirectCurrencies = (props) => {
   useEffect(() => {
-    // console.log(props);
-    props.history.push(`/currencies/${props.match.params.currency}`)
-  },[]);
-  return(
+    props.history.push(`/currencies/${props.match.params.currency}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return (
     <div>
       <p>Please Wait while Redirected</p>
     </div>
-  )
-}
+  );
+};
 
-export default RedirectCurrencies
+export default RedirectCurrencies;
