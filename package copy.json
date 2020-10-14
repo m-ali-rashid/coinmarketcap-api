@@ -17,18 +17,18 @@
     "redux": "^4.0.5",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.1.0",
+    "styled-components": "^5.1.0"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.2"
   },
-  "devDependencies": {},
   "scripts": {
-    "startreact": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "server": "cd server && nodemon server.js",
-    "start": "concurrently \"npm run server\" \"react-scripts start\" ",
-    "heroku-postbuild": "npm install && npm run build"
+    "dev": "concurrently \"yarn server\" \"yarn start\" "
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
